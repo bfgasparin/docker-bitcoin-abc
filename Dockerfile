@@ -11,11 +11,11 @@ ENV USER_ID ${USER_ID:-1000}
 ENV GROUP_ID ${GROUP_ID:-1000}
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN groupadd -g ${GROUP_ID} bitcoin \
-	&& useradd -u ${USER_ID} -g bitcoin -s /bin/bash -m -d /bitcoin bitcoin
+RUN groupadd -g ${GROUP_ID} bitcoin-abc \
+	&& useradd -u ${USER_ID} -g bitcoin-abc -s /bin/bash -m -d /bitcoin-abc bitcoin-abc
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C70EF1F0305A1ADB9986DBD8D46F45428842CE5E && \
-    echo "deb http://ppa.launchpad.net/bitcoin/bitcoin/ubuntu xenial main" > /etc/apt/sources.list.d/bitcoin.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 74FBA0B99748FAADE065B23111057DDDF08490BA  && \
+    echo "deb http://ppa.launchpad.net/bitcoin-abc/ppa/ubuntu xenial main" > /etc/apt/sources.list.d/bitcoin.list
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		bitcoind \
@@ -42,11 +42,11 @@ RUN set -x \
 
 ADD ./bin /usr/local/bin
 
-VOLUME ["/bitcoin"]
+VOLUME ["/bitcoin-abc"]
 
 EXPOSE 8332 8333 18332 18333
 
-WORKDIR /bitcoin
+WORKDIR /bitcoin-abc
 
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
