@@ -1,6 +1,6 @@
 [Unit]
 Description=Bitcoind Docker Container
-Documentation=https://github.com/kylemanna/docker-bitcoind
+Documentation=https://github.com/brunogasparin/docker-bitcoin-abc
 After=network.target docker.socket
 Requires=docker.socket
 
@@ -11,7 +11,7 @@ Restart=always
 # Modify IP6_PREFIX to match network config
 Environment="NAME=bitcoind"
 Environment="DATA_VOL=bitcoind-data"
-Environment="IMG=kylemanna/bitcoind:dev"
+Environment="IMG=brunogasparin/bitcoind:dev"
 Environment="PORT=8333:8333/tcp"
 
 # To override environment variables, use local configuration directory:

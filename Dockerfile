@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-MAINTAINER Kyle Manna <kyle@kylemanna.com>
+MAINTAINER Bruno Gasparin <bfgasparin@gmail.com>
 
 ARG USER_ID
 ARG GROUP_ID

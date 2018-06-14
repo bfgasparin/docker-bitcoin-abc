@@ -6,10 +6,10 @@ respawn
 pre-start script
   # Clean-up if left behind
   docker rm -f bitcoind-node || true
-  
+
   # Attempt to always update and fail silently if the network isn't ready
-  docker pull kylemanna/bitcoind || true
+  docker pull brunogasparin/bitcoind || true
 end script
 script
-  exec docker run --rm -v bitcoind-data:/bitcoin --name=bitcoind-node --rm -p 8333:8333 -p 127.0.0.1:8332:8332 kylemanna/bitcoind
+  exec docker run --rm -v bitcoind-data:/bitcoin --name=bitcoind-node --rm -p 8333:8333 -p 127.0.0.1:8332:8332 brunogasparin/bitcoind
 end script
