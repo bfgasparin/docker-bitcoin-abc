@@ -33,12 +33,6 @@ RUN set -x \
 		wget \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Install ca certificates for ssl
-RUN apt-get update -y \
-  && apt-get install -y ca-certificates \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 ENV BITCOIN_ABC_VERSION="0.18.3"
 ENV BITCOIN_ABC_SHASUM="409b0bae0b24c8011d546e4adb9e4b0c2213435f2a10f947b79040bfe9a32b9b  bitcoin-abc-${BITCOIN_ABC_VERSION}-x86_64-linux-gnu.tar.gz"
 ENV BITCOIN_ABC_PREFIX=/opt/bitcoin-abc-${BITCOIN_ABC_VERSION}
