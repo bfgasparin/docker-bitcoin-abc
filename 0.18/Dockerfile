@@ -51,8 +51,6 @@ RUN set -x \
         && rm *.tar.gz \
 	&& apt-get purge -y \
 		ca-certificates \
-                gnupg \
-                unzip \
 		curl \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
